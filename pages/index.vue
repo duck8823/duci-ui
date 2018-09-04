@@ -18,16 +18,21 @@
           target="_blank"
           class="button--grey">GitHub</a>
       </div>
+      <div class="log">
+        <log/>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import Log     from '~/components/Log.vue'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
+    Log
   }
 }
 </script>
