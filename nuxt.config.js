@@ -14,6 +14,12 @@ module.exports = {
     ]
   },
   /*
+  ** modules
+  */
+  modules: [
+    'semantic-ui-vue/nuxt'
+  ],
+  /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
