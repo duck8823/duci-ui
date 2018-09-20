@@ -1,6 +1,6 @@
 <style>
   div.log {
-    padding-bottom: 2rem;
+    padding: 0 3rem 2rem 3rem;
   }
   table td {
     font-family: monospace;

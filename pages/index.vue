@@ -7,9 +7,7 @@
       <h2 class="subtitle">
         Web UI for duci
       </h2>
-      <div class="log">
-        <log/>
-      </div>
+      <log/>
     </div>
   </section>
 </template>
@@ -26,11 +24,16 @@ export default {
 
 <style>
 .container {
+  width: auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.container > div {
+  width: 100%;
 }
 
 .title {
