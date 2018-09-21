@@ -18,7 +18,7 @@
             {{ logLine.time }}
           </sui-table-cell>
           <sui-table-cell>
-            {{ logLine.message }}
+            <pre>{{ logLine.message }}</pre>
           </sui-table-cell>
         </sui-table-row>
       </sui-table-body>
