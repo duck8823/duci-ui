@@ -30,13 +30,14 @@
   import moment from 'moment'
 
   export default {
+    props:  ["logId"],
     data() {
       return {
         log: []
       }
     },
     created() {
-      oboe('http://localhost:8080/logs/eb3334e6-ae9b-11e8-9bf0-4e16a2762ee3')
+      oboe(`http://localhost:8080/logs/${this.logId}`)
         .done((logLine) => {
           this.log.push({
             time: moment(logLine.time).format('YYYY-MM-DD HH:mm:ss.SSS'),
