@@ -21,6 +21,11 @@
             <pre>{{ logLine.message }}</pre>
           </sui-table-cell>
         </sui-table-row>
+        <sui-table-row v-if="loading">
+          <sui-table-cell colspan="3" text-align="center">
+            <sui-icon name="notched circle" loading />
+          </sui-table-cell>
+        </sui-table-row>
       </sui-table-body>
     </sui-table>
   </div>
@@ -33,16 +38,23 @@
     props:  ["logId"],
     data() {
       return {
-        log: []
+        log: [],
+        loading: true
       }
     },
     created() {
       oboe(`http://localhost:8080/logs/${this.logId}`)
-        .done((logLine) => {
+        .node('{time message}', (logLine) => {
           this.log.push({
             time: moment(logLine.time).format('YYYY-MM-DD HH:mm:ss.SSS'),
             message: logLine.message
           })
+        })
+        .fail((err) => {
+          console.error(err)
+        })
+        .on('end', () => {
+          this.loading = false
         })
     },
     updated() {
