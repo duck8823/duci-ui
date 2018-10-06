@@ -8,7 +8,7 @@
 </style>
 <template>
   <div class="log">
-    <sui-table unstackable celled compact inverted>
+    <sui-table unstackable celled compact inverted selectable>
       <sui-table-body>
         <sui-table-row v-for="(logLine, index) in log" :key="index">
           <sui-table-cell>
@@ -19,6 +19,11 @@
           </sui-table-cell>
           <sui-table-cell>
             <pre>{{ logLine.message }}</pre>
+          </sui-table-cell>
+          <sui-table-cell>
+            <sui-label circular size="tiny" v-if="logLine.elapsed">
+              {{ logLine.elapsed }} sec
+            </sui-label>
           </sui-table-cell>
         </sui-table-row>
         <sui-table-row v-if="loading">
@@ -43,17 +48,32 @@
       }
     },
     created() {
+      let job
       oboe(`http://localhost:8080/logs/${this.logId}`)
         .node('{time message}', (logLine) => {
-          this.log.push({
-            time: moment(logLine.time).format('YYYY-MM-DD HH:mm:ss.SSS'),
-            message: logLine.message
-          })
+          if (job) {
+            let m = moment(logLine.time)
+            let t = moment(job.time)
+            let e = (m.unix() * 1000 + m.milliseconds()) - (t.unix() * 1000 + t.milliseconds())
+            this.log.push({
+              time: t.format('YYYY-MM-DD HH:mm:ss.SSS'),
+              message: job.message,
+              elapsed: e / 1000
+            })
+          }
+
+          job = logLine
         })
         .fail((err) => {
           console.error(err)
+          this.loading = false
+          this.error = err
         })
         .on('end', () => {
+          this.log.push({
+            time: moment(job.time).format('YYYY-MM-DD HH:mm:ss.SSS'),
+            message: job.message
+          })
           this.loading = false
         })
     },
