@@ -65,16 +65,19 @@
           job = logLine
         })
         .fail((err) => {
-          console.error(err)
           this.loading = false
-          this.error = err
+          console.error(err)
         })
         .on('end', () => {
+          this.loading = false
+          if (!job) {
+            return
+          }
+
           this.log.push({
             time: moment(job.time).format('YYYY-MM-DD HH:mm:ss.SSS'),
             message: job.message
           })
-          this.loading = false
         })
     },
     updated() {
