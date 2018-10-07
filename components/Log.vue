@@ -38,6 +38,7 @@
 <script>
   import oboe from 'oboe'
   import moment from 'moment'
+  import url from 'url'
 
   export default {
     props:  ["logId"],
@@ -49,7 +50,7 @@
     },
     created() {
       let job
-      oboe(`http://localhost:8080/logs/${this.logId}`)
+      oboe(`${url.resolve(process.env.logsUrl, this.logId)}`)
         .node('{time message}', (logLine) => {
           if (job) {
             let m = moment(logLine.time)

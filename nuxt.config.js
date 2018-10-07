@@ -1,5 +1,17 @@
 module.exports = {
   /*
+  ** environments
+  */
+  env: {
+    logsUrl: (() => {
+      let logsUrl = process.env.DUCI_LOGS_URL || 'http://localhost:8080/logs/'
+      if (!logsUrl.match(/\/$/)) {
+        logsUrl += '/'
+      }
+      return logsUrl
+    })()
+  },
+  /*
   ** Headers of the page
   */
   head: {
