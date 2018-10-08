@@ -41,7 +41,12 @@ import moment from "moment";
 import url from "url";
 
 export default {
-  props: ["logId"],
+  props: {
+    logId: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       log: [],
