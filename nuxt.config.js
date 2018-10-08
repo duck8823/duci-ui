@@ -4,37 +4,33 @@ module.exports = {
   */
   env: {
     logsUrl: (() => {
-      let logsUrl = process.env.DUCI_LOGS_URL || 'http://localhost:8080/logs/'
+      let logsUrl = process.env.DUCI_LOGS_URL || "http://localhost:8080/logs/";
       if (!logsUrl.match(/\/$/)) {
-        logsUrl += '/'
+        logsUrl += "/";
       }
-      return logsUrl
+      return logsUrl;
     })()
   },
   /*
   ** Headers of the page
   */
   head: {
-    title: 'duci-ui',
+    title: "duci-ui",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Web UI for duci' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "Web UI for duci" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   /*
   ** modules
   */
-  modules: [
-    'semantic-ui-vue/nuxt'
-  ],
+  modules: ["semantic-ui-vue/nuxt"],
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: "#3B8070" },
   /*
   ** Build configuration
   */
@@ -45,13 +41,12 @@ module.exports = {
     extend(config) {
       if (process.server && process.browser) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
-
+};
