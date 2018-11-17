@@ -2,15 +2,7 @@ module.exports = {
   /*
   ** environments
   */
-  env: {
-    logsUrl: (() => {
-      let logsUrl = process.env.DUCI_LOGS_URL || "http://localhost:8080/logs/";
-      if (!logsUrl.match(/\/$/)) {
-        logsUrl += "/";
-      }
-      return logsUrl;
-    })()
-  },
+  env: {},
   /*
   ** Headers of the page
   */
@@ -26,7 +18,7 @@ module.exports = {
   /*
   ** modules
   */
-  modules: ["semantic-ui-vue/nuxt"],
+  modules: ["semantic-ui-vue/nuxt", ["nuxt-env", { keys: ["DUCI_LOGS_URL"] }]],
   /*
   ** Customize the progress bar color
   */

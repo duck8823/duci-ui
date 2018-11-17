@@ -54,8 +54,9 @@ export default {
     };
   },
   created() {
+    let logsUrl = this.$env.DUCI_LOGS_URL || "http://localhost:8080/logs/";
     let job;
-    oboe(`${url.resolve(process.env.logsUrl, this.logId)}`)
+    oboe(`${url.resolve(logsUrl, this.logId)}`)
       .node("{time message}", logLine => {
         if (job) {
           let m = moment(logLine.time);
