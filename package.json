@@ -18,7 +18,7 @@
     "nuxt-env": "^0.0.4",
     "oboe": "^2.1.4",
     "semantic-ui-css": "^2.4.0",
-    "semantic-ui-vue": "^0.4.1"
+    "semantic-ui-vue": "^0.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
