@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "nuxt": "^2.10.2",
+    "nuxt": "^2.11.0",
     "nuxt-env": "^0.1.0",
     "oboe": "^2.1.5",
     "semantic-ui-css": "^2.4.0",
