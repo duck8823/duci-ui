@@ -1,7 +1,5 @@
-FROM node:8 AS build
+FROM node:13 AS build
 MAINTAINER shunsuke maeda <duck8823@gmail.com>
-
-RUN npm install -g yarn
 
 WORKDIR /tmp/workdir
 
@@ -10,7 +8,7 @@ ADD . .
 RUN yarn install
 RUN yarn build
 
-FROM node:8-alpine
+FROM node:13-alpine
 
 WORKDIR /app
 
