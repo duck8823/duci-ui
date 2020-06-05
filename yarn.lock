@@ -6419,10 +6419,10 @@ semantic-ui-css@^2.4.0:
   dependencies:
     jquery x.*
 
-semantic-ui-vue@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/semantic-ui-vue/-/semantic-ui-vue-0.10.1.tgz#def474527660874750ce29243aa5871804745530"
-  integrity sha512-hy+yrQtzcU2JZEHQwks0iE1kk00LPOY2y7sChMhCh7+IdU9WoeObu6/GC1XqoKVCoDsnMeq/8vDqs5fefLCwDg==
+semantic-ui-vue@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/semantic-ui-vue/-/semantic-ui-vue-0.11.0.tgz#b114c1ed7fc06bfc6bd27c8919e112ce6e45d08e"
+  integrity sha512-wQE7zn7TIOPbLzbUp5hhIzivEkV6qk/i+Vc/BCQCQH7thF7UWqsEAcWWrlskwMTD48uoqGGUHIEN+kxsy0W3mA==
 
 semver@7.0.0:
   version "7.0.0"
