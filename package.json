@@ -28,7 +28,7 @@
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.11.1",
+    "eslint-plugin-vue": "^7.12.1",
     "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "minimist": "^1.2.5",
